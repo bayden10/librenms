@@ -1,0 +1,2424 @@
+FPJ2-EXMIB-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises
+			FROM RFC1155-SMI
+		OBJECT-TYPE
+			FROM RFC-1212;
+
+	hitachi 	OBJECT IDENTIFIER ::= { enterprises 116 }
+
+	system		OBJECT IDENTIFIER ::= { hitachi 3 }
+
+	projector 	OBJECT IDENTIFIER ::= { system 37 }
+
+	fpj2		OBJECT IDENTIFIER ::= { projector 2 }
+
+	systemExMib	OBJECT IDENTIFIER ::= { hitachi 5 }
+
+	projectorExMib	OBJECT IDENTIFIER ::= { systemExMib 37 }
+
+	fpj2-ExMib	OBJECT IDENTIFIER ::= { projectorExMib 2 }
+
+fpj2-Status		OBJECT IDENTIFIER ::= {fpj2-ExMib 1}
+fpj2-Main		OBJECT IDENTIFIER ::= {fpj2-ExMib 2}
+fpj2-Picture		OBJECT IDENTIFIER ::= {fpj2-ExMib 3}
+fpj2-Image		OBJECT IDENTIFIER ::= {fpj2-ExMib 4}
+fpj2-Input		OBJECT IDENTIFIER ::= {fpj2-ExMib 5}
+fpj2-Setup		OBJECT IDENTIFIER ::= {fpj2-ExMib 6}
+fpj2-Audio		OBJECT IDENTIFIER ::= {fpj2-ExMib 7}
+fpj2-Screen		OBJECT IDENTIFIER ::= {fpj2-ExMib 8}
+fpj2-Option		OBJECT IDENTIFIER ::= {fpj2-ExMib 9}
+fpj2-OptionService	OBJECT IDENTIFIER ::= {fpj2-ExMib 10}
+fpj2-IWB		OBJECT IDENTIFIER ::= {fpj2-ExMib 11}
+
+fpj2-Status-Error OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current ERROR STATUS."
+	::= { fpj2-Status 1 }
+
+fpj2-Status-LampTime OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current LAMP(1) TIME."
+	::= { fpj2-Status 2 }
+
+fpj2-Status-FilterTime OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current FILTER TIME."
+	::= { fpj2-Status 3 }
+
+fpj2-Status-FilterStatusNotification OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current FILTER STATUS NOTIFICATION."
+	::= { fpj2-Status 4 }
+
+fpj2-Status-Lamp2Time OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current LAMP2 TIME."
+	::= { fpj2-Status 5 }
+
+fpj2-Main-Power OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current power state."
+	::= { fpj2-Main 1 }
+
+fpj2-Main-InputSource OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The current input state."
+	::= { fpj2-Main 2 }
+
+fpj2-Main-PictureMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PICTURE MODE setting."
+	::= { fpj2-Main 3 }
+
+fpj2-Main-BlankOnOff OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLANK ON/OFF setting."
+	::= { fpj2-Main 4 }
+
+fpj2-Main-Mute OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MUTE setting."
+	::= { fpj2-Main 5 }
+
+fpj2-Main-Freeze OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FREEZE setting."
+	::= { fpj2-Main 6 }
+
+fpj2-Main-Magnify OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MAGNIFY setting."
+	::= { fpj2-Main 7 }
+
+fpj2-Main-MagnifyPositionV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MAGNIFY POSITION V setting."
+	::= { fpj2-Main 8 }
+
+fpj2-Main-MagnifyPositionH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MAGNIFY POSITION H setting."
+	::= { fpj2-Main 9 }
+
+fpj2-Main-TemplateOnOff OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of TEMPLATE ON/OFF setting."
+	::= { fpj2-Main 10 }
+
+fpj2-Main-MyImage OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY IMAGE setting."
+	::= { fpj2-Main 11 }
+
+fpj2-Main-Shade OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SHADE setting."
+	::= { fpj2-Main 12 }
+
+fpj2-Main-LensMemoryIndex OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LENS MEMORY INDEX setting."
+	::= { fpj2-Main 13 }
+
+fpj2-Main-LensMemoryLensShiftV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LENS MEMORY - LENS SHIFT V setting."
+	::= { fpj2-Main 14 }
+
+fpj2-Main-LensMemoryLensShiftH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LENS MEMORY - LENS SHIFT H setting."
+	::= { fpj2-Main 15 }
+
+fpj2-Main-LensMemoryLensType OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LENS MEMORY - LENS TYPE setting."
+	::= { fpj2-Main 16 }
+
+fpj2-Main-PbyP-PinP OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PbyP / PinP setting."
+	::= { fpj2-Main 17 }
+
+fpj2-Main-PbyP-MainSize OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PbyP MAIN SIZE setting."
+	::= { fpj2-Main 18 }
+
+fpj2-Main-PbyP-RightSource OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PbyP RIGHT SOURCE setting."
+	::= { fpj2-Main 19 }
+
+fpj2-Main-PbyP-MainArea OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PbyP MAIN AREA setting."
+	::= { fpj2-Main 20 }
+
+fpj2-Main-PbyP-LeftSource OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PbyP LEFT SOURCE setting."
+	::= { fpj2-Main 21 }
+
+fpj2-Main-PinP-Position OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PinP POSITION setting."
+	::= { fpj2-Main 22 }
+
+fpj2-Main-PinP-MainArea OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PinP MAIN AREA setting."
+	::= { fpj2-Main 23 }
+
+fpj2-Main-PinP-PrimarySource OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PinP PRIMARY SOURCE setting."
+	::= { fpj2-Main 24 }
+
+fpj2-Main-PinP-SecandarySource OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PinP SECANDARY SOURCE setting."
+	::= { fpj2-Main 25 }
+
+fpj2-Main-FrameLockPbyP-PinP OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - PbyP / PinP setting."
+	::= { fpj2-Main 26 }
+
+fpj2-Picture-Brightness OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BRIGHTNESS setting."
+	::= { fpj2-Picture 1 }
+
+fpj2-Picture-Contrast OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of CONTRAST setting."
+	::= { fpj2-Picture 2 }
+
+fpj2-Picture-Gamma OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of GAMMA setting."
+	::= { fpj2-Picture 3 }
+
+fpj2-Picture-TestPattern OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA PATTERN setting."
+	::= { fpj2-Picture 4 }
+
+fpj2-Picture-GammaPoint1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 1 setting."
+	::= { fpj2-Picture 5 }
+
+fpj2-Picture-GammaPoint2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 2 setting."
+	::= { fpj2-Picture 6 }
+
+fpj2-Picture-GammaPoint3 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 3 setting."
+	::= { fpj2-Picture 7 }
+
+fpj2-Picture-GammaPoint4 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 4 setting."
+	::= { fpj2-Picture 8 }
+
+fpj2-Picture-GammaPoint5 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 5 setting."
+	::= { fpj2-Picture 9 }
+
+fpj2-Picture-GammaPoint6 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 6 setting."
+	::= { fpj2-Picture 10 }
+
+fpj2-Picture-GammaPoint7 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 7 setting."
+	::= { fpj2-Picture 11 }
+
+fpj2-Picture-GammaPoint8 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USER GAMMA POINT 8 setting."
+	::= { fpj2-Picture 12 }
+
+fpj2-Picture-ColorTemp OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP setting."
+	::= { fpj2-Picture 13 }
+
+fpj2-Picture-ColorTempGainR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP GAIN R setting."
+	::= { fpj2-Picture 14 }
+
+fpj2-Picture-ColorTempGainG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP GAIN G setting."
+	::= { fpj2-Picture 15 }
+
+fpj2-Picture-ColorTempGainB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP GAIN B setting."
+	::= { fpj2-Picture 16 }
+
+fpj2-Picture-ColorTempOffsetR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP OFFSET R setting."
+	::= { fpj2-Picture 17 }
+
+fpj2-Picture-ColorTempOffsetG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP OFFSET G setting."
+	::= { fpj2-Picture 18 }
+
+fpj2-Picture-ColorTempOffsetB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR TEMP OFFSET B setting."
+	::= { fpj2-Picture 19 }
+
+fpj2-Picture-Color OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR setting."
+	::= { fpj2-Picture 20 }
+
+fpj2-Picture-Tint OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of TINT setting."
+	::= { fpj2-Picture 21 }
+
+fpj2-Picture-Sharpness OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SHARPNESS setting."
+	::= { fpj2-Picture 22 }
+
+fpj2-Picture-ActiveIris OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of ACTIVE IRIS setting."
+	::= { fpj2-Picture 23 }
+
+fpj2-Picture-HDCR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of HDCR setting."
+	::= { fpj2-Picture 24 }
+
+fpj2-Picture-ColorWheel OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR WHEEL setting."
+	::= { fpj2-Picture 25 }
+
+fpj2-Picture-Accentualizer OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of ACCENTUALIZER setting."
+	::= { fpj2-Picture 26 }
+
+fpj2-Picture-ColorManagementHueR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - HUE R setting."
+	::= { fpj2-Picture 27 }
+
+fpj2-Picture-ColorManagementHueY OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - HUE Y setting."
+	::= { fpj2-Picture 28 }
+
+fpj2-Picture-ColorManagementHueG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - HUE G setting."
+	::= { fpj2-Picture 29 }
+
+fpj2-Picture-ColorManagementHueC OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - HUE C setting."
+	::= { fpj2-Picture 30 }
+
+fpj2-Picture-ColorManagementHueB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - HUE B setting."
+	::= { fpj2-Picture 31 }
+
+fpj2-Picture-ColorManagementHueM OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - HUE M setting."
+	::= { fpj2-Picture 32 }
+
+fpj2-Picture-ColorManagementSaturationR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - SATURATION R setting."
+	::= { fpj2-Picture 33 }
+
+fpj2-Picture-ColorManagementSaturationY OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - SATURATION Y setting."
+	::= { fpj2-Picture 34 }
+
+fpj2-Picture-ColorManagementSaturationG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - SATURATION G setting."
+	::= { fpj2-Picture 35 }
+
+fpj2-Picture-ColorManagementSaturationC OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - SATURATION C setting."
+	::= { fpj2-Picture 36 }
+
+fpj2-Picture-ColorManagementSaturationB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - SATURATION B setting."
+	::= { fpj2-Picture 37 }
+
+fpj2-Picture-ColorManagementSaturationM OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - SATURATION M setting."
+	::= { fpj2-Picture 38 }
+
+fpj2-Picture-ColorManagementLuminanceR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - LUMINANCE R setting."
+	::= { fpj2-Picture 39 }
+
+fpj2-Picture-ColorManagementLuminanceY OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - LUMINANCE Y setting."
+	::= { fpj2-Picture 40 }
+
+fpj2-Picture-ColorManagementLuminanceG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - LUMINANCE G setting."
+	::= { fpj2-Picture 41 }
+
+fpj2-Picture-ColorManagementLuminanceC OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - LUMINANCE C setting."
+	::= { fpj2-Picture 42 }
+
+fpj2-Picture-ColorManagementLuminanceB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - LUMINANCE B setting."
+	::= { fpj2-Picture 43 }
+
+fpj2-Picture-ColorManagementLuminanceM OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR MANAGEMENT - LUMINANCE M setting."
+	::= { fpj2-Picture 44 }
+
+fpj2-Image-Aspect OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of ASPECT setting."
+	::= { fpj2-Image 1 }
+
+fpj2-Image-OverScan OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of OVER SCAN setting."
+	::= { fpj2-Image 2 }
+
+fpj2-Image-VPosition OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of V POSITION setting."
+	::= { fpj2-Image 3 }
+
+fpj2-Image-HPosition OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of H POSITION setting."
+	::= { fpj2-Image 4 }
+
+fpj2-Image-HPhase OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of H PHASE setting."
+	::= { fpj2-Image 5 }
+
+fpj2-Image-HSize OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of H SIZE setting."
+	::= { fpj2-Image 6 }
+
+fpj2-Input-Progressive OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PROGRESSIVE setting."
+	::= { fpj2-Input 1 }
+
+fpj2-Input-3DYCS OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of 3D-YCS setting."
+	::= { fpj2-Input 2 }
+
+fpj2-Input-VideoNR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VIDEO NR setting."
+	::= { fpj2-Input 3 }
+
+fpj2-Input-ColorSpace OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR SPACE setting."
+	::= { fpj2-Input 4 }
+
+fpj2-Input-Component OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COMPONENT setting."
+	::= { fpj2-Input 5 }
+
+fpj2-Input-SVideoFormat OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of S-VIDEO FORMAT setting."
+	::= { fpj2-Input 6 }
+
+fpj2-Input-CVideoFormat OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of C-VIDEO FORMAT setting."
+	::= { fpj2-Input 7 }
+
+fpj2-Input-HDMIFormat OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL FORMAT - HDMI(1) setting."
+	::= { fpj2-Input 8 }
+
+fpj2-Input-HDMIRange OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL RANGE - HDMI(1) setting."
+	::= { fpj2-Input 9 }
+
+fpj2-Input-Computer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COMPUTER IN1 setting."
+	::= { fpj2-Input 10 }
+
+fpj2-Input-Computer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COMPUTER IN2 setting."
+	::= { fpj2-Input 11 }
+
+fpj2-Input-FrameLockComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - COMPUTER IN1 setting."
+	::= { fpj2-Input 12 }
+
+fpj2-Input-FrameLockComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - COMPUTER IN2 setting."
+	::= { fpj2-Input 13 }
+
+fpj2-Input-FrameLockHDMI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - HDMI(1) setting."
+	::= { fpj2-Input 14 }
+
+fpj2-Input-VideoFormatComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VIDEO FORMAT - COMPUTER IN1 setting."
+	::= { fpj2-Input 15 }
+
+fpj2-Input-VideoFormatComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VIDEO FORMAT - COMPUTER IN2 setting."
+	::= { fpj2-Input 16 }
+
+fpj2-Input-HDMI2Format OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL FORMAT - HDMI2 setting."
+	::= { fpj2-Input 17 }
+
+fpj2-Input-HDMI2Range OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL RANGE - HDMI2 setting."
+	::= { fpj2-Input 18 }
+
+fpj2-Input-FrameLockHDMI2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - HDMI2 setting."
+	::= { fpj2-Input 19 }
+
+fpj2-Input-DVIDFormat OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL FORMAT - DVI-D setting."
+	::= { fpj2-Input 20 }
+
+fpj2-Input-HDBaseTFormat OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL FORMAT - HDBaseT setting."
+	::= { fpj2-Input 21 }
+
+fpj2-Input-DVIDRange OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL RANGE - DVI-D setting."
+	::= { fpj2-Input 22 }
+
+fpj2-Input-HDBaseTRange OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL RANGE - HDBaseT setting."
+	::= { fpj2-Input 23 }
+
+fpj2-Input-FrameLockDVID OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - DVI-D setting."
+	::= { fpj2-Input 24 }
+
+fpj2-Input-FrameLockHDBaseT OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - HDBaseT setting."
+	::= { fpj2-Input 25 }
+
+fpj2-Input-FrameLockPbyP-PinP OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - PbyP / PinP setting."
+	::= { fpj2-Input 26 }
+
+fpj2-Input-SdiDigital1Range OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL RANGE - SDI / DIGITAL1 setting."
+	::= { fpj2-Input 27 }
+
+fpj2-Input-FrameLockSdiDigital1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - SDI / DIGITAL1 setting."
+	::= { fpj2-Input 28 }
+
+fpj2-Input-3G-SdiType OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of 3G-SDI TYPE setting."
+	::= { fpj2-Input 29 }
+
+fpj2-Input-DigitalFormatDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL FORMAT - DISPLAYPORT setting."
+	::= { fpj2-Input 30 }
+
+fpj2-Input-DigitalRangeDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIGITAL RANGE - DISPLAYPORT setting."
+	::= { fpj2-Input 31 }
+
+fpj2-Input-FrameLockDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FRAME LOCK - DISPLAYPORT setting."
+	::= { fpj2-Input 32 }
+
+fpj2-Setup-KeystoneV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of KEYSTONE V setting."
+	::= { fpj2-Setup 1 }
+
+fpj2-Setup-KeystoneH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of KEYSTONE H setting."
+	::= { fpj2-Setup 2 }
+
+fpj2-Setup-AutoEcoMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO ECO MODE setting."
+	::= { fpj2-Setup 3 }
+
+fpj2-Setup-EcoMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of ECO MODE setting."
+	::= { fpj2-Setup 4 }
+
+fpj2-Setup-Mirror OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MIRROR setting."
+	::= { fpj2-Setup 5 }
+
+fpj2-Setup-StandbyMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of STANDBY MODE setting."
+	::= { fpj2-Setup 6 }
+
+fpj2-Setup-MonitorOutComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - COMPUTER IN1 setting."
+	::= { fpj2-Setup 7 }
+
+fpj2-Setup-MonitorOutComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - COMPUTER IN2 setting."
+	::= { fpj2-Setup 8 }
+
+fpj2-Setup-MonitorOutLAN OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - LAN setting."
+	::= { fpj2-Setup 9 }
+
+fpj2-Setup-MonitorOutUSBtypeA OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - USB TYPE A setting."
+	::= { fpj2-Setup 10 }
+
+fpj2-Setup-MonitorOutUSBtypeB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - USB TYPE B setting."
+	::= { fpj2-Setup 11 }
+
+fpj2-Setup-MonitorOutHDMI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - HDMI(1) setting."
+	::= { fpj2-Setup 12 }
+
+fpj2-Setup-MonitorOutComponent OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - COMPONENT setting."
+	::= { fpj2-Setup 13 }
+
+fpj2-Setup-MonitorOutSVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - S-VIDEO setting."
+	::= { fpj2-Setup 14 }
+
+fpj2-Setup-MonitorOutVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - VIDEO setting."
+	::= { fpj2-Setup 15 }
+
+fpj2-Setup-MonitorOutStandby OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - STANDBY setting."
+	::= { fpj2-Setup 16 }
+
+fpj2-Setup-DZoom OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of D-ZOOM setting."
+	::= { fpj2-Setup 17 }
+
+fpj2-Setup-DShiftV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of D-SHIFT V setting."
+	::= { fpj2-Setup 18 }
+
+fpj2-Setup-DShiftH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of D-SHIFT H setting."
+	::= { fpj2-Setup 19 }
+
+fpj2-Setup-PicturePositionV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PICTURE POSITION V setting."
+	::= { fpj2-Setup 20 }
+
+fpj2-Setup-PicturePositionH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PICTURE POSITION H setting."
+	::= { fpj2-Setup 21 }
+
+fpj2-Setup-PerfectFit OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT setting."
+	::= { fpj2-Setup 22 }
+
+fpj2-Setup-PerfectFitLeftTopH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - LEFT TOP H setting."
+	::= { fpj2-Setup 23 }
+
+fpj2-Setup-PerfectFitLeftTopV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - LEFT TOP V setting."
+	::= { fpj2-Setup 24 }
+
+fpj2-Setup-PerfectFitLeftBottomH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - LEFT BOTTOM H setting."
+	::= { fpj2-Setup 25 }
+
+fpj2-Setup-PerfectFitLeftBottomV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - LEFT BOTTOM V setting."
+	::= { fpj2-Setup 26 }
+
+fpj2-Setup-PerfectFitRightTopH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - RIGHT TOP H setting."
+	::= { fpj2-Setup 27 }
+
+fpj2-Setup-PerfectFitRightTopV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - RIGHT TOP V setting."
+	::= { fpj2-Setup 28 }
+
+fpj2-Setup-PerfectFitRightBottomH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - RIGHT BOTTOM H setting."
+	::= { fpj2-Setup 29 }
+
+fpj2-Setup-PerfectFitRightBottomV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - RIGHT BOTTOM V setting."
+	::= { fpj2-Setup 30 }
+
+fpj2-Setup-PerfectFitLeftSideDistortion OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - LEFT SIDE DISTORTION setting."
+	::= { fpj2-Setup 31 }
+
+fpj2-Setup-PerfectFitRightSideDistortion OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - RIGHT SIDE DISTORTION setting."
+	::= { fpj2-Setup 32 }
+
+fpj2-Setup-PerfectFitDistortionPositionV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - DISTORTION POSITION V setting."
+	::= { fpj2-Setup 33 }
+
+fpj2-Setup-PerfectFitTopSideDistortion OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - TOP SIDE DISTORTION setting."
+	::= { fpj2-Setup 34 }
+
+fpj2-Setup-PerfectFitBottomSideDistortion OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - BOTTOM SIDE DISTORTION setting."
+	::= { fpj2-Setup 35 }
+
+fpj2-Setup-PerfectFitDistortionPositionH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of PERFECT FIT - DISTORTION POSITION H setting."
+	::= { fpj2-Setup 36 }
+
+fpj2-Setup-MonitorOutHDMI2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - HDMI2 setting."
+	::= { fpj2-Setup 37 }
+
+fpj2-Setup-GeometricMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of GEOMETRIC MODE setting."
+	::= { fpj2-Setup 38 }
+
+fpj2-Setup-BlendingLevel OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - BLENDING LEVEL setting."
+	::= { fpj2-Setup 39 }
+
+fpj2-Setup-BlendingCornerLeftTopH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER LEFT TOP H setting."
+	::= { fpj2-Setup 40 }
+
+fpj2-Setup-BlendingCornerLeftTopV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER LEFT TOP V setting."
+	::= { fpj2-Setup 41 }
+
+fpj2-Setup-BlendingCornerRightTopH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER RIGHT TOP H setting."
+	::= { fpj2-Setup 42 }
+
+fpj2-Setup-BlendingCornerRightTopV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER RIGHT TOP V setting."
+	::= { fpj2-Setup 43 }
+
+fpj2-Setup-BlendingCornerLeftBottomH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER LEFT BOTTOM H setting."
+	::= { fpj2-Setup 44 }
+
+fpj2-Setup-BlendingCornerLeftBottomV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER LEFT BOTTOM V setting."
+	::= { fpj2-Setup 45 }
+
+fpj2-Setup-BlendingCornerRightBottomH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER RIGHT BOTTOM H setting."
+	::= { fpj2-Setup 46 }
+
+fpj2-Setup-BlendingCornerRightBottomV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CORNER RIGHT BOTTOM V setting."
+	::= { fpj2-Setup 47 }
+
+fpj2-Setup-BlendingRegionTop OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - BLEND REGION - TOP setting."
+	::= { fpj2-Setup 48 }
+
+fpj2-Setup-BlendingRegionLeft OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - BLEND REGION - LEFT setting."
+	::= { fpj2-Setup 49 }
+
+fpj2-Setup-BlendingRegionRight OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - BLEND REGION - RIGHT setting."
+	::= { fpj2-Setup 50 }
+
+fpj2-Setup-BlendingRegionBottom OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - BLEND REGION - BOTTOM setting."
+	::= { fpj2-Setup 51 }
+
+fpj2-Setup-CroppingMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CROPPING MODE setting."
+	::= { fpj2-Setup 52 }
+
+fpj2-Setup-CroppingCropRegionTop OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CROPPING - CROP REGION TOP setting."
+	::= { fpj2-Setup 53 }
+
+fpj2-Setup-CroppingCropRegionLeft OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CROPPING - CROP REGION LEFT setting."
+	::= { fpj2-Setup 54 }
+
+fpj2-Setup-CroppingCropRegionHeight OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CROPPING - CROP REGION HEIGHT setting."
+	::= { fpj2-Setup 55 }
+
+fpj2-Setup-CroppingCropRegionWidth OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of EDGE BLENDING - CROPPING - CROP REGION WIDTH setting."
+	::= { fpj2-Setup 56 }
+
+fpj2-Setup-WarpingMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of WARPING MODE setting."
+	::= { fpj2-Setup 57 }
+
+fpj2-Setup-LampMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LAMP & FILTER - LAMP MODE setting."
+	::= { fpj2-Setup 58 }
+
+fpj2-Setup-LampFilterAlternate OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LAMP & FILTER - ALTERNATE setting."
+	::= { fpj2-Setup 59 }
+
+fpj2-Setup-LampFilterCycleTime OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LAMP & FILTER - CYCLE TIME setting."
+	::= { fpj2-Setup 60 }
+
+fpj2-Setup-FilterMessage OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of FILTER MESSAGE setting."
+	::= { fpj2-Setup 61 }
+
+fpj2-Setup-MonitorOutDVID OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - DVI-D setting."
+	::= { fpj2-Setup 62 }
+
+fpj2-Setup-MonitorOutHDBaseT OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - HDBaseT setting."
+	::= { fpj2-Setup 63 }
+
+fpj2-Setup-MonitorOutSdiDigital1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - SDI / DIGITAL1 setting."
+	::= { fpj2-Setup 64 }
+
+fpj2-Setup-AutoHDCRandAC OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO HDCR & AC setting."
+	::= { fpj2-Setup 65 }
+
+fpj2-Setup-ImageOptimizer OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IMAGE OPTIMIZER setting."
+	::= { fpj2-Setup 66 }
+
+fpj2-Setup-BlendingMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING MODE setting."
+	::= { fpj2-Setup 67 }
+
+fpj2-Setup-BlendingDimmingLevel OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - DIMMING LEVEL setting."
+	::= { fpj2-Setup 68 }
+
+fpj2-Setup-BlendingWhiteBalanceGainR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - WHITE BALANCE - GAIN R setting."
+	::= { fpj2-Setup 69 }
+
+fpj2-Setup-BlendingWhiteBalanceGainG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - WHITE BALANCE - GAIN G setting."
+	::= { fpj2-Setup 70 }
+
+fpj2-Setup-BlendingWhiteBalanceGainB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - WHITE BALANCE - GAIN B setting."
+	::= { fpj2-Setup 71 }
+
+fpj2-Setup-BlendingWhiteBalanceOffsetR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - WHITE BALANCE - OFFSET R setting."
+	::= { fpj2-Setup 72 }
+
+fpj2-Setup-BlendingWhiteBalanceOffsetG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - WHITE BALANCE - OFFSET G setting."
+	::= { fpj2-Setup 73 }
+
+fpj2-Setup-BlendingWhiteBalanceOffsetB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - WHITE BALANCE - OFFSET B setting."
+	::= { fpj2-Setup 74 }
+
+fpj2-Setup-BlendingBlackLevelW OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - BLACK LEVEL W setting."
+	::= { fpj2-Setup 75 }
+
+fpj2-Setup-BlendingBlackLevelR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - BLACK LEVEL R setting."
+	::= { fpj2-Setup 76 }
+
+fpj2-Setup-BlendingBlackLevelG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - BLACK LEVEL G setting."
+	::= { fpj2-Setup 77 }
+
+fpj2-Setup-BlendingBlackLevelB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLENDING - BLACK LEVEL B setting."
+	::= { fpj2-Setup 78 }
+
+fpj2-Setup-MonitorOutDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MONITOR OUT - DISPLAYPORT setting."
+	::= { fpj2-Setup 79 }
+
+fpj2-Setup-OsdMessage OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of OSD MESSAGE setting."
+	::= { fpj2-Setup 80 }
+
+fpj2-Setup-ColorUniformityLevel OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR UNIFORMITY LEVEL setting."
+	::= { fpj2-Setup 81 }
+
+fpj2-Setup-ColorUniformityArea OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR UNIFORMITY AREA setting."
+	::= { fpj2-Setup 82 }
+
+fpj2-Setup-ColorUniformityR OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR UNIFORMITY R setting."
+	::= { fpj2-Setup 83 }
+
+fpj2-Setup-ColorUniformityG OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR UNIFORMITY G setting."
+	::= { fpj2-Setup 84 }
+
+fpj2-Setup-ColorUniformityB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR UNIFORMITY B setting."
+	::= { fpj2-Setup 85 }
+
+fpj2-Setup-ColorUniformityPattern OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of COLOR UNIFORMITY PATTERN setting."
+	::= { fpj2-Setup 86 }
+
+fpj2-Audio-VolumeComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - COMPUTER IN1 setting."
+	::= { fpj2-Audio 1 }
+
+fpj2-Audio-VolumeComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - COMPUTER IN2 setting."
+	::= { fpj2-Audio 2 }
+
+fpj2-Audio-VolumeLAN OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - LAN setting."
+	::= { fpj2-Audio 3 }
+
+fpj2-Audio-VolumeUSBtypeA OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - USB TYPE A setting."
+	::= { fpj2-Audio 4 }
+
+fpj2-Audio-VolumeUSBtypeB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - USB TYPE B setting."
+	::= { fpj2-Audio 5 }
+
+fpj2-Audio-VolumeHDMI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - HDMI(1) setting."
+	::= { fpj2-Audio 6 }
+
+fpj2-Audio-VolumeComponent OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - COMPONENT setting."
+	::= { fpj2-Audio 7 }
+
+fpj2-Audio-VolumeSVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - S-VIDEO setting."
+	::= { fpj2-Audio 8 }
+
+fpj2-Audio-VolumeVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - VIDEO setting."
+	::= { fpj2-Audio 9 }
+
+fpj2-Audio-VolumeStandby OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - STANDBY setting."
+	::= { fpj2-Audio 10 }
+
+fpj2-Audio-Speaker OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SPEAKER setting."
+	::= { fpj2-Audio 11 }
+
+fpj2-Audio-AudioSourceComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - COMPUTER IN1 setting."
+	::= { fpj2-Audio 12 }
+
+fpj2-Audio-AudioSourceComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - COMPUTER IN2 setting."
+	::= { fpj2-Audio 13 }
+
+fpj2-Audio-AudioSourceLAN OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - LAN setting."
+	::= { fpj2-Audio 14 }
+
+fpj2-Audio-AudioSourceUSBtypeA OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - USB TYPE A setting."
+	::= { fpj2-Audio 15 }
+
+fpj2-Audio-AudioSourceUSBtypeB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - USB TYPE B setting."
+	::= { fpj2-Audio 16 }
+
+fpj2-Audio-AudioSourceHDMI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - HDMI(1) setting."
+	::= { fpj2-Audio 17 }
+
+fpj2-Audio-AudioSourceComponent OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - COMPONENT setting."
+	::= { fpj2-Audio 18 }
+
+fpj2-Audio-AudioSourceSVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - S-VIDEO setting."
+	::= { fpj2-Audio 19 }
+
+fpj2-Audio-AudioSourceVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - VIDEO setting."
+	::= { fpj2-Audio 20 }
+
+fpj2-Audio-AudioSourceStandby OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - STANDBY setting."
+	::= { fpj2-Audio 21 }
+
+fpj2-Audio-HDMIAudio OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of HDMI(1) AUDIO setting."
+	::= { fpj2-Audio 22 }
+
+fpj2-Audio-MicLevel OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MIC LEVEL setting."
+	::= { fpj2-Audio 23 }
+
+fpj2-Audio-MicVolume OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MIC VOLUME setting."
+	::= { fpj2-Audio 24 }
+
+fpj2-Audio-LanSoundEnable OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LAN SOUND ENABLE setting."
+	::= { fpj2-Audio 25 }
+
+fpj2-Audio-USBtypeBSoundEnable OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USB TYPE B SOUND ENABLE setting."
+	::= { fpj2-Audio 26 }
+
+fpj2-Audio-VolumeAll OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME setting."
+	::= { fpj2-Audio 27 }
+
+fpj2-Audio-VolumeHDMI2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of VOLUME - HDMI2 setting."
+	::= { fpj2-Audio 28 }
+
+fpj2-Audio-AudioSourceHDMI2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - HDMI2 setting."
+	::= { fpj2-Audio 29 }
+
+fpj2-Audio-HDMI2Audio OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of HDMI2 AUDIO setting."
+	::= { fpj2-Audio 30 }
+
+fpj2-Audio-USBtypeASoundEnable OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USB TYPE A SOUND ENABLE setting."
+	::= { fpj2-Audio 31 }
+
+fpj2-Audio-AudioSourceHDBaseT OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - HDBaseT setting."
+	::= { fpj2-Audio 32 }
+
+fpj2-Audio-AudioVolumeHDBaseT OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO VOLUME - HDBaseT setting."
+	::= { fpj2-Audio 33 }
+
+fpj2-Audio-AudioVolumeSDI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO VOLUME - SDI setting."
+	::= { fpj2-Audio 34 }
+
+fpj2-Audio-AudioVolumeDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO VOLUME - DISPLAYPORT setting."
+	::= { fpj2-Audio 35 }
+
+fpj2-Audio-AudioSourceSDI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - SDI setting."
+	::= { fpj2-Audio 36 }
+
+fpj2-Audio-AudioSourceDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUDIO SOURCE - DISPLAYPORT setting."
+	::= { fpj2-Audio 37 }
+
+fpj2-Screen-Language OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of LANGUAGE setting."
+	::= { fpj2-Screen 1 }
+
+fpj2-Screen-MenuPositionV OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MENU POSITION V setting."
+	::= { fpj2-Screen 2 }
+
+fpj2-Screen-MenuPositionH OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MENU POSITION H setting."
+	::= { fpj2-Screen 3 }
+
+fpj2-Screen-Blank OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of BLANK setting."
+	::= { fpj2-Screen 4 }
+
+fpj2-Screen-StartUp OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of START UP setting."
+	::= { fpj2-Screen 5 }
+
+fpj2-Screen-MyScreenLock OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY SCREEN LOCK setting."
+	::= { fpj2-Screen 6 }
+
+fpj2-Screen-Message OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MESSAGE setting."
+	::= { fpj2-Screen 7 }
+
+fpj2-Screen-Template OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of TEMPLATE setting."
+	::= { fpj2-Screen 8 }
+
+fpj-Screen-CC-Display OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of C.C. DISPLAY setting."
+	::= { fpj2-Screen 9 }
+
+fpj2-Screen-CC-Mode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of C.C. MODE setting."
+	::= { fpj2-Screen 10 }
+
+fpj2-Screen-CC-Channel OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of C.C. CHANNEL setting."
+	::= { fpj2-Screen 11 }
+
+fpj2-Screen-AutoBlank OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO BLANK setting."
+	::= { fpj2-Screen 12 }
+
+fpj2-Option-AutoSearch OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO SEARCH setting."
+	::= { fpj2-Option 1 }
+
+fpj2-Option-AutoKeystone OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO KEYSTONE setting."
+	::= { fpj2-Option 2 }
+
+fpj2-Option-DirectPowerOn OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of DIRECT POWER ON setting."
+	::= { fpj2-Option 3 }
+
+fpj2-Option-AutoPowerOff OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO POWER OFF setting."
+	::= { fpj2-Option 4 }
+
+fpj2-Option-USBtypeB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of USB TYPE B setting."
+	::= { fpj2-Option 5 }
+
+fpj2-Option-MyButton1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY BUTTON-1 setting."
+	::= { fpj2-Option 6 }
+
+fpj2-Option-MyButton2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY BUTTON-2 setting."
+	::= { fpj2-Option 7 }
+
+fpj2-Option-MySource OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY SOURCE setting."
+	::= { fpj2-Option 8 }
+
+fpj2-Option-MyButtonEco OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY BUTTON-ECO setting."
+	::= { fpj2-Option 9 }
+
+fpj2-Option-SourceSkipComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - COMPUTER IN1 setting."
+	::= { fpj2-Option 10 }
+
+fpj2-Option-SourceSkipComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - COMPUTER IN2 setting."
+	::= { fpj2-Option 11 }
+
+fpj2-Option-SourceSkipLAN OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - LAN setting."
+	::= { fpj2-Option 12 }
+
+fpj2-Option-SourceSkipUSBtypeA OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - USB TYPE A setting."
+	::= { fpj2-Option 13 }
+
+fpj2-Option-SourceSkipUSBtypeB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - USB TYPE B setting."
+	::= { fpj2-Option 14 }
+
+fpj2-Option-SourceSkipHDMI OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - HDMI(1) setting"
+	::= { fpj2-Option 15 }
+
+fpj2-Option-SourceSkipHDMI2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - HDMI2 setting."
+	::= { fpj2-Option 16 }
+
+fpj2-Option-SourceSkipComponent OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - COMPONENT setting."
+	::= { fpj2-Option 17 }
+
+fpj2-Option-SourceSkipSVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - S-VIDEO setting."
+	::= { fpj2-Option 18 }
+
+fpj2-Option-SourceSkipVideo OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - VIDEO setting."
+	::= { fpj2-Option 19 }
+
+fpj2-Option-ShadeTimer OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SHADE TIMER setting."
+	::= { fpj2-Option 20 }
+
+fpj2-Option-MyButton3 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY BUTTON-3 setting."
+	::= { fpj2-Option 21 }
+
+fpj2-Option-MyButton4 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of MY BUTTON-4 setting."
+	::= { fpj2-Option 22 }
+
+fpj2-Option-SourceSkipDVID OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - DVI-D setting."
+	::= { fpj2-Option 23 }
+
+fpj2-Option-SourceSkipHDBaseT OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - HDBaseT setting."
+	::= { fpj2-Option 24 }
+
+fpj2-Option-SourceSkipSdiDigital1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - SDI / DIGITAL1 setting."
+	::= { fpj2-Option 25 }
+
+fpj2-Option-AutoEcoMode OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of AUTO ECO MODE setting."
+	::= { fpj2-Option 26 }
+
+fpj2-Option-SourceSkipDisplayPort OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of SOURCE SKIP - DISPLAYPORT setting."
+	::= { fpj2-Option 27 }
+
+fpj2-OptionService-RemoteFreqNormal OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of REMOTE FREQ. NORMAL setting."
+	::= { fpj2-OptionService 1 }
+
+fpj2-OptionService-RemoteFreqHigh OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of REMOTE FREQ. HIGH setting."
+	::= { fpj2-OptionService 2 }
+
+fpj2-OptionService-RemoteReceivFront OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of REMOTE RECEIV. FRONT setting."
+	::= { fpj2-OptionService 3 }
+
+fpj2-OptionService-RemoteReceivRear OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of REMOTE RECEIV. REAR setting."
+	::= { fpj2-OptionService 4 }
+
+fpj2-OptionService-RemoteReceivTop OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IR REMOTE RECEIV. TOP setting."
+	::= { fpj2-OptionService 5 }
+
+fpj2-OptionService-RemoteID OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IR REMOTE ID setting."
+	::= { fpj2-OptionService 6 }
+
+fpj2-OptionService-RemoteReceivHDBaseT OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IR REMOTE HDBaseT setting."
+	::= { fpj2-OptionService 7 }
+
+fpj2-IWB-ModeComputer-in1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - COMPUTER IN1 setting."
+	::= { fpj2-IWB 1 }
+
+fpj2-IWB-ModeComputer-in2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - COMPUTER IN2 setting."
+	::= { fpj2-IWB 2 }
+
+fpj2-IWB-ModeLAN OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - LAN setting."
+	::= { fpj2-IWB 3 }
+
+fpj2-IWB-ModeUSBtypeA OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - USB typeA setting."
+	::= { fpj2-IWB 4 }
+
+fpj2-IWB-ModeUSBtypeB OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - USB typeB setting."
+	::= { fpj2-IWB 5 }
+
+fpj2-IWB-ModeHDMI1 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - HDMI1 setting."
+	::= { fpj2-IWB 6 }
+
+fpj2-IWB-ModeHDMI2 OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - HDMI2 setting."
+	::= { fpj2-IWB 7 }
+
+fpj2-IWB-ModeVIDEO OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	optional
+	DESCRIPTION
+		"The value of IWB MODE - VIDEO setting."
+	::= { fpj2-IWB 8 }
+
+coldStart TRAP-TYPE
+	ENTERPRISE	fpj2
+	DESCRIPTION
+		"A coldStart trap signifies that the sending
+		protocol entity is reinitializing itself such
+		that the agent's configuration or the rotocol
+		entity implementation may be altered."
+	::= 0
+
+authenticationFailure TRAP-TYPE
+	ENTERPRISE	fpj2
+	DESCRIPTION
+		"An authenticationFailure trap signifies that
+		the sending protocol entity is the addressee
+		of a protocol message that is not properly
+		authenticated.  While implementations of the
+		SNMP must be capable of generating this trap,
+		they must also be capable of suppressing the
+		emission of such traps via an implementation-
+		specific mechanism."
+	::= 4
+
+fpj2-Error TRAP-TYPE
+	ENTERPRISE	fpj2
+	VARIABLES	{ fpj2-Status-Error }
+	DESCRIPTION
+		"Some errors occurred."
+	::= 1
+
+fpj2-LampAlarm TRAP-TYPE
+	ENTERPRISE	fpj2
+	VARIABLES	{ fpj2-Status-LampTime }
+	DESCRIPTION
+		"Lamp time warning."
+	::= 2
+
+fpj2-FilterAlarm TRAP-TYPE
+	ENTERPRISE	fpj2
+	VARIABLES	{ fpj2-Status-FilterTime }
+	DESCRIPTION
+		"Filter time warning."
+	::= 3
+
+fpj2-ScheduleExecError TRAP-TYPE
+	ENTERPRISE	fpj2
+	DESCRIPTION
+		"Schedule execution error occurred."
+	::= 7
+
+fpj2-TransitionDetectorAlarm TRAP-TYPE
+	ENTERPRISE	fpj2
+	DESCRIPTION
+		"Transition Detector warning."
+	::= 8
+
+fpj2-FilterStatusNotification TRAP-TYPE
+	ENTERPRISE	fpj2
+	VARIABLES	{ fpj2-Status-FilterStatusNotification }
+	DESCRIPTION
+		"Filter status notification."
+	::= 9
+
+fpj2-Lamp2Alarm TRAP-TYPE
+	ENTERPRISE	fpj2
+	VARIABLES	{ fpj2-Status-Lamp2Time }
+	DESCRIPTION
+		"Lamp2 time warning."
+	::= 10
+
+END
